@@ -1,5 +1,5 @@
 
-.container1{
+#container{
     display: flex;
     flex-direction: row;
     background-color:khaki;
@@ -9,24 +9,14 @@
    gap: 20px;
 
 }
-.boxmain1{
+.box{
     display: flex;
     flex-direction: column;
     gap: 10px;
     max-width: 30%;
 }
-.boxmain2{
-    flex-direction: column;
-    max-width: 30%;
-    gap: 10px;
-}
-.boxmain3{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 30%;
-}
-.panier{
+
+#total-cost{
     text-align: left;
     font-size: medium;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -39,10 +29,6 @@
     width: 40px;
 }
 
-.quantity {
-    top: 200px;
-    left: 175px;
-}
 
 
 .prix{

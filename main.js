@@ -1,37 +1,70 @@
+const buttons = document.querySelectorAll('.button2');
+for (let button of buttons) {
+  button.addEventListener('click', function() {
+    if (this.style.color === 'red') {
+      this.style.color = '';
+    } else {
+      this.style.color = 'red';
+    }
+  });
+}
+//fonction delete
+const dels =document.getElementsByClassName("delete")[0];
+// const boxes =document.getElementsByClassName("box")[0];
+
+for (let i =0;i<dels.length;i++) {
+  dels[i].addEventListener("click", function() {boxes[i].remove()
+
+})}
+
+const shoppingCart = document.getElementById("container");
+const items = shoppingCart.getElementsByClassName("box");
+const totalPrice = document.getElementById("total-cost");
+
+let total = 0;
+
+for(let i=0; i<items.length; i++){
+  const item = items[i];
+  const moins = item.getElementsByClassName("moins")[0];
+  const plus = item.getElementsByClassName("plus")[0];
+  const quantity = item.getElementsByTagName("input")[0];
+  const deleteBtn = item.getElementsByClassName("delete")[0];
+
+  const price = parseInt(
+    item.getElementsByClassName("price")[0].innerText.substring(1)
+  );
 
 
-var plus = document.getElementsByClassName("plus");
-var moins = document.getElementsByClassName("moins");
-var quantity = document.getElementsByClassName("quantity");
 
+moins.addEventListener("click", ()=>{
+  if(quantity.value>1){
+    quantity.value--;
+    total -= price;
+    totalPrice.innerText = `Total Price: $${total}`;
 
-
-
-  
-
-
-// fonction incrementation
-var count = 0;
-document.getElementsByClassName("plus").addEventListener("click", function() {
-  count++;
-  document.getElementsByClassName("quantity").innerHTML = count;
-  if(count<0){
-    quantity.innerHTML = 0 ;
-    console.log(count)
   }
 });
 
-// fonction decrementation
-var count = 0;
-document.getElementsByClassName("moins").addEventListener("click", function() {
-  count--;
-  document.getElementsByClassName("quantity").innerHTML = count;
-  if(count<0){
-    quantity.innerHTML = 0 ;
-  }
+plus.addEventListener("click", ()=>{
+  quantity.value++;
+  total += price;
+  totalPrice.innerText = `Total Price: $${total}`;
+
 
 });
 
+deleteBtn.addEventListener("click" , () =>{
+  item.remove();
+  total -= price * quantity.value;
+  totalPrice.innerText = `Total Price: $${total}`;
+
+})
+
+
+total += price * quantity.value;
+totalPrice.innerText = `Total Price: $${total}`;
+
+}
 
 
  
@@ -41,18 +74,7 @@ document.getElementsByClassName("moins").addEventListener("click", function() {
 
 
   // fonction coeur(click=red)   up up up up up up up up up up up up up 
-  const buttons = document.querySelectorAll('.button2');
-
-  for (let button of buttons) {
-    button.addEventListener('click', function() {
-      if (this.style.color === 'red') {
-        this.style.color = '';
-      } else {
-        this.style.color = 'red';
-      }
-    });
-  }
-
+ 
 
 
 
